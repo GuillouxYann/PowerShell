@@ -9,6 +9,7 @@ $TestYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux
 $ID = $TestYG.GroupId 
 
 foreach ($user in $users) 
-{   $mail = $user+"@cosformation.fr"
+{   $mail = $user.samaccountname+"@cosformation.fr"
     Add-TeamUser -GroupId $ID -User $mail -Role "member"
- }
+}
+ 
