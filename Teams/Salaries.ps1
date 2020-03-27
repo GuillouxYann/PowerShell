@@ -5,11 +5,17 @@ $CRPF = Get-ADUser -Filter "*" -SearchBase $OU -Properties city
 $users =  $CRPF | Select-Object samaccountname | Sort-Object samaccountname
 
 Connect-MicrosoftTeams
-$TestYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux@cosformation.fr"
-$ID = $TestYG.GroupId 
+$testYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux@cosformation.fr"
+$id = $testYG.GroupId 
+
 
 foreach ($user in $users) 
-{   $mail = $user.samaccountname+"@cosformation.fr"
-    Add-TeamUser -GroupId $ID -User $mail -Role "member"
+{   $mail = $user.samAccountName+"@cosformation.fr"
+    try {
+        Add-TeamUser -GroupId $id -User $mail -Role "member"
+    }
+    catch {
+        $pasDeCompte += $user.samAccountName
+    }
 }
  
