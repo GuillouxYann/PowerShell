@@ -6,6 +6,7 @@ Try {
 }
 Catch {
     Write-Host "impossible de se connecter au domaine"
+    exit
 }
 
 #Récupération des Utilisateurs CRPF
@@ -20,6 +21,7 @@ try {
 }
 catch {
     Write-Host "Impossible de se connecter à Teams"
+    exit
 }    
 
 $testYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux@cosformation.fr"
