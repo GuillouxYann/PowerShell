@@ -18,7 +18,6 @@ $users =  $CRPF | Select-Object samaccountname | Sort-Object samaccountname
 try {
     Connect-MicrosoftTeams
     }
-}
 catch {
     Write-Host "Impossible de se connecter à Teams"
     exit
