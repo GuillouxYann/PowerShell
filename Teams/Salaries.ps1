@@ -5,7 +5,7 @@ Try {
     Test-Connection   "vad3.cos-nanteau.local" -Quiet -Count 1 -ErrorAction stop
 }
 Catch {
-    Write-Host "ERREUR: Impossible de se connecter au domaine"
+    Write-Host "ERREUR: DOMAINE Connexion Impossible"
     exit
 }
 
@@ -19,7 +19,7 @@ try {
     Connect-MicrosoftTeams -ErrorAction stop
     }
 catch {
-    Write-Host "ERREUR: Impossible de se connecter à Teams"
+    Write-Host "ERREUR: TEAMS Connexion impossible"
     exit
 }    
 
