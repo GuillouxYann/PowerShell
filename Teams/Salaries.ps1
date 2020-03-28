@@ -2,7 +2,7 @@
 
 #Connexion au domaine
 Try {
-    Test-Connection   "vad3.cos-nanteau.local"
+    Test-Connection   "vad3.cos-nanteau.local" -ErrorAction stop
 }
 Catch {
     Write-Host "impossible de se connecter au domaine"
