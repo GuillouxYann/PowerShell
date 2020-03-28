@@ -5,7 +5,7 @@ Try {
     Test-Connection   "vad3.cos-nanteau.local" -ErrorAction stop
 }
 Catch {
-    Write-Host "impossible de se connecter au domaine"
+    Write-Host "ERREUR: Impossible de se connecter au domaine"
     exit
 }
 
@@ -16,10 +16,10 @@ $users =  $CRPF | Select-Object samaccountname | Sort-Object samaccountname
 
 #Connexion à TEAMS 
 try {
-    Connect-MicrosoftTeams
+    Connect-MicrosoftTeams -ErrorAction stop
     }
 catch {
-    Write-Host "Impossible de se connecter à Teams"
+    Write-Host "ERREUR: Impossible de se connecter à Teams"
     exit
 }    
 
