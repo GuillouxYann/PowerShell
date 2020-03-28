@@ -25,13 +25,17 @@ catch {
 
 $testYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux@cosformation.fr"
 $id = $testYG.GroupId 
-
+$pasDeCompte = @()
 foreach ($user in $users) 
     {   $mail = $user.samAccountName+"@cosformation.fr"
     try {
-        Add-TeamUser -GroupId $id -User $mail -Role "member"
+        Add-TeamUser -GroupId $id -User $mail -Role "member" -ErrorAction stop
+        Write-host $mail "ajouté"
         }
     catch {
+        write-host $user.samAccountName "pas de compte O365"
         $pasDeCompte += $user.samAccountName
         }
     }
+Disconnect-MicrosoftTeams
+$pasDeCompte 
