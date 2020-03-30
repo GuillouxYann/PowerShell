@@ -23,8 +23,8 @@ catch {
     exit
 }    
 
-$testYG = New-Team -DisplayName "TESTYG" -Visibility "private" -Owner "yguilloux@cosformation.fr"
-$id = $testYG.GroupId 
+$Salaries = Get-Team -DisplayName "SALARIES"
+$id = $Salaries.GroupId 
 $pasDeCompte = @()
 foreach ($user in $users) 
     {   $mail = $user.samAccountName+"@cosformation.fr"

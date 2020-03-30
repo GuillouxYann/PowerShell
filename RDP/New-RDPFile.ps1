@@ -58,4 +58,5 @@ forEach ($item in $list) {
     $out += "username:s:COS-NANTEAU\" + $item.Samaccountname
     $outFileName = ".\PEDAGO-" + $item.Samaccountname + ".rdp"
     $out | out-file $outFileName
+    Write-Host $outFileName 
    } 
