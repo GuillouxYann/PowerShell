@@ -11,7 +11,7 @@ Catch {
 
 #Récupération des Utilisateurs CRPF
 $OU = "OU=Users CRPF,OU=Utilisateurs,DC=cos-nanteau,DC=local"
-$CRPF = Get-ADUser -Filter "*" -SearchBase $OU -Properties city
+$CRPF = Get-ADUser -Filter "*" -SearchBase $OU 
 $users =  $CRPF | Select-Object samaccountname | Sort-Object samaccountname
 
 #Connexion à TEAMS 
@@ -23,8 +23,8 @@ catch {
     exit
 }    
 
-$Salaries = Get-Team -DisplayName "SALARIES"
-$id = $Salaries.GroupId 
+$TeamSalaries = Get-Team -DisplayName "SALARIES"
+$id = $TeamSalaries.GroupId 
 $pasDeCompte = @()
 foreach ($user in $users) 
     {   $mail = $user.samAccountName+"@cosformation.fr"
