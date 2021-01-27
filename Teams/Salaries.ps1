@@ -38,4 +38,4 @@ foreach ($user in $users)
         }
     }
 Disconnect-MicrosoftTeams
-$pasDeCompte 
+ 
